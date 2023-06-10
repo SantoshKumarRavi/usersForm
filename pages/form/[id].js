@@ -2,7 +2,7 @@ import "tailwindcss/tailwind.css";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { fetchUser, CreateUser, UpdateUser } from "../../services/Users";
-import { loadingSvg } from "../../public/assests/svg/loading";
+import LoadingSvg from "../../components/assests/svg/LoadingSvg";
 
 const Form = () => {
   const router = useRouter();
@@ -121,7 +121,7 @@ const Form = () => {
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 font-bold text-lg flex justify-center gap-1"
             >
               {alreadyUser ? "Update" : "Submit"}
-              {submitLoading && loadingSvg("white")}
+              {submitLoading && <LoadingSvg color="white"/>}
             </button>
             <button
               type="button"
@@ -135,7 +135,9 @@ const Form = () => {
       </div>
       {loading && (
         <div className="absolute bg-blue-200 bg-opacity-25 w-full h-screen top-0 flex justify-center items-center">
-          <div className="w-20 h-20">{loadingSvg("currentColor")}</div>
+          <div className="w-20 h-20">
+            <LoadingSvg color="red"/>
+          </div>
         </div>
       )}
     </div>
