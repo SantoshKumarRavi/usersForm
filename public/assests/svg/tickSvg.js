@@ -1,8 +1,9 @@
+import "tailwindcss/tailwind.css";
 export const tickSvg = (color = "currentColor") => {
     return (
         <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10 text-green-500 mb-4"
+        className="h-20 w-20 text-green-500 mb-4"
         viewBox="0 0 20 20"
         fill={color}
       >

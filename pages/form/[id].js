@@ -1,8 +1,8 @@
+import "tailwindcss/tailwind.css";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { fetchUser, CreateUser, UpdateUser } from "../../services/Users";
 import { loadingSvg } from "../../public/assests/svg/loading";
-import "tailwindcss/tailwind.css";
 
 const Form = () => {
   const router = useRouter();
@@ -24,6 +24,7 @@ const Form = () => {
   useEffect(() => {
     if (username !== "" && username !== undefined) {
       async function initiateAPICall() {
+        setLoading(true);
         let result = await fetchUser(username);
         if (result.statusCode !== 404) {
           setAlreadyUser(true);
@@ -134,7 +135,7 @@ const Form = () => {
       </div>
       {loading && (
         <div className="absolute bg-blue-200 bg-opacity-25 w-full h-screen top-0 flex justify-center items-center">
-          {loadingSvg()}
+          <div className="w-20 h-20">{loadingSvg("currentColor")}</div>
         </div>
       )}
     </div>

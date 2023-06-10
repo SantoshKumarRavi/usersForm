@@ -1,4 +1,5 @@
-export const loadingSvg = (color = "currentColor") => {
+import "tailwindcss/tailwind.css";
+export const loadingSvg = (color="currentColor") => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
